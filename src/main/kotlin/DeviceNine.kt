@@ -15,6 +15,9 @@ object DeviceNine : KotlinPlugin(
     }
 ) {
     override fun onEnable() {
+
+        DeviceNineConfig.reload()
+
         logger.info { "Plugin loaded" }
     }
 }
