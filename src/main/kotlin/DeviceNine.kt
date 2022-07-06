@@ -1,5 +1,6 @@
 package moe.dazecake
 
+import moe.dazecake.utils.TokenGetter
 import net.mamoe.mirai.console.plugin.jvm.JvmPluginDescription
 import net.mamoe.mirai.console.plugin.jvm.KotlinPlugin
 import net.mamoe.mirai.utils.info
@@ -17,6 +18,10 @@ object DeviceNine : KotlinPlugin(
     override fun onEnable() {
 
         DeviceNineConfig.reload()
+
+        if (TokenGetter.get() == "") {
+            logger.warning("Token 获取失败，无法连接至审判庭")
+        }
 
         logger.info { "Plugin loaded" }
     }

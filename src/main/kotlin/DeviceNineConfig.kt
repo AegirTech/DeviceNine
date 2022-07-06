@@ -9,4 +9,7 @@ object DeviceNineConfig: AutoSavePluginConfig("DeviceNineConfig") {
 
     val root:Long by value()
 
+    val adminAccount:String by value()
+
+    val adminPassword:String by value()
 }
