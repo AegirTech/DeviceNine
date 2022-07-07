@@ -8,6 +8,7 @@ plugins {
 
 group = "moe.dazecake"
 version = "1.0-SNAPSHOT"
+val ktor_version: String by project
 
 repositories {
     maven("https://maven.aliyun.com/repository/public")
@@ -17,4 +18,9 @@ repositories {
 dependencies{
     implementation("com.squareup.okhttp3:okhttp:4.9.3")
     implementation("com.google.code.gson:gson:2.9.0")
+    //ktor
+    implementation("io.ktor:ktor-client-core:$ktor_version")
+    implementation("io.ktor:ktor-client-cio:$ktor_version")
+    implementation("io.ktor:ktor-client-content-negotiation:$ktor_version")
+    implementation("io.ktor:ktor-serialization-gson:$ktor_version")
 }
