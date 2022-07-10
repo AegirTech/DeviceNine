@@ -1,7 +1,9 @@
 package moe.dazecake
 
 import kotlinx.coroutines.launch
+import moe.dazecake.command.StateQueryCommand
 import moe.dazecake.http.TokenGetter
+import net.mamoe.mirai.console.command.CommandManager.INSTANCE.register
 import net.mamoe.mirai.console.plugin.jvm.JvmPluginDescription
 import net.mamoe.mirai.console.plugin.jvm.KotlinPlugin
 import net.mamoe.mirai.utils.info
@@ -21,10 +23,11 @@ object DeviceNine : KotlinPlugin(
         DeviceNineConfig.reload()
 
         launch {
-            if (TokenGetter.get().isNullOrEmpty()) {
+            if (TokenGetter.getToken().isNullOrEmpty()) {
                 logger.warning("Token 获取失败，无法连接至审判庭")
             }
         }
+        StateQueryCommand.register()
 
         logger.info { "Plugin loaded" }
     }
