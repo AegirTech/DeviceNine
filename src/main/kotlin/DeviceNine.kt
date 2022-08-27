@@ -1,6 +1,7 @@
 package moe.dazecake
 
 import kotlinx.coroutines.launch
+import moe.dazecake.command.CDKQueryCommand
 import moe.dazecake.command.StateQueryCommand
 import moe.dazecake.http.TokenGetter
 import net.mamoe.mirai.console.command.CommandManager.INSTANCE.register
@@ -28,6 +29,7 @@ object DeviceNine : KotlinPlugin(
             }
         }
         StateQueryCommand.register()
+        CDKQueryCommand.register()
 
         logger.info { "Plugin loaded" }
     }
